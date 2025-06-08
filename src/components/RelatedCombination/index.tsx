@@ -3,7 +3,9 @@ import "./relatedCombination.scss";
 import CombinationStore from "../../stores/CombinationStore";
 import { RelatedCombinationType } from "../../constants/types";
 import LikeIcon from "../common/LikeIcon";
+import { useState } from "react";
 
+const NUMBER_ITEMS = 5;
 interface Props {
   relatedCombination: RelatedCombinationType;
   onClick: (id: number | null) => void;
@@ -33,12 +35,20 @@ const RelatedCombinationItem = ({ relatedCombination, onClick }: Props) => {
 };
 
 const RelatedCombination = observer(() => {
+  const [itemsToShow, setItemsToShow] = useState(NUMBER_ITEMS);
   const relatedCombinations =
     CombinationStore.currentCombination.relatedCombinations;
 
   const handleCombinationClick = (id: number | null) => {
     CombinationStore.setSelectedCombination(id);
   };
+
+  const handleLoadMore = () => {
+    setItemsToShow((prev) => prev + 5);
+  };
+
+  const displayedCombinations = relatedCombinations.slice(0, itemsToShow);
+  const hasMore = itemsToShow < relatedCombinations.length;
 
   if (!relatedCombinations?.length) {
     return (
@@ -55,18 +65,23 @@ const RelatedCombination = observer(() => {
     <section className="relatedCombination">
       <h3 className="relatedCombination__title">Related Combinations</h3>
       <div className="relatedCombination__grid">
-        {relatedCombinations.map((item: RelatedCombinationType) => (
+        {displayedCombinations.map((item: RelatedCombinationType) => (
           <RelatedCombinationItem
             key={item.id}
             relatedCombination={item}
             onClick={handleCombinationClick}
           />
         ))}
-        <div className="relatedCombinationItem--see-more">
-          <button className="relatedCombination__see-more-btn">
-            See more combinations
-          </button>
-        </div>
+        {hasMore && (
+          <div className="relatedCombinationItem--see-more">
+            <button
+              className="relatedCombination__see-more-btn"
+              onClick={handleLoadMore}
+            >
+              See more combinations
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
