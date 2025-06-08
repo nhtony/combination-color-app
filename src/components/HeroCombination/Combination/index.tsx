@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MainCombination } from "../../../constants/types";
+import CheckIcon from "../../common/CheckIcon";
 import "./combination.scss";
-import CheckIcon from "../CheckIcon";
 
 type Props = {
   combination: MainCombination;
@@ -11,21 +11,25 @@ const Combination = ({ combination }: Props) => {
   const [clickedIndex, setClickedIndex] = useState<string>("");
   const { colors = [] } = combination;
 
-  const handleClick = (slug: string, hex: string) => {
+  const handleClick = (hex: string) => {
     navigator.clipboard.writeText(hex);
-    setClickedIndex(slug);
+    setClickedIndex(hex);
   };
+
+  useEffect(() => {
+    setClickedIndex("");
+  }, [combination.id]);
 
   return (
     <div className="combination">
       {colors.map((color) => (
-        <div className="combination__content" key={color.slug}>
+        <div className="combination__content" key={color.hex + combination.id}>
           <div
             className="combination__box"
             style={{ backgroundColor: color.hex }}
-            onClick={() => handleClick(color.slug, color.hex)}
+            onClick={() => handleClick(color.hex)}
           >
-            {clickedIndex === color.slug ? (
+            {clickedIndex === color.hex ? (
               <span className="combination__check">
                 <CheckIcon />
               </span>

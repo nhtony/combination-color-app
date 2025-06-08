@@ -1,14 +1,46 @@
 import { makeAutoObservable } from "mobx";
 import { fetchAllCombinations } from "../../services/fetchAllCombinations";
 import {
+  Color,
   CombinationResponse,
   MainCombination,
+  RelatedCombinationType,
 } from "../../constants/types";
 
 type NetworkState = "pending" | "done" | "error";
 
+const createMainCombination = (
+  relatedCombination: RelatedCombinationType
+): CombinationResponse => {
+  return {
+    combination: {
+      id: relatedCombination.id,
+      name: relatedCombination.name,
+      slug: relatedCombination.slug,
+      likes: relatedCombination.likes,
+      liked: relatedCombination.liked,
+      colors: relatedCombination.colors.map((hex) => ({
+        hex,
+        name: "",
+        slug: hex.replace("#", "").toLowerCase(),
+      })),
+      featuredImage: {
+        alt: "",
+        url: "",
+      },
+      color: {
+        hex: relatedCombination.colors[0] || "#000000",
+        name: relatedCombination.name,
+        slug: relatedCombination.slug,
+      },
+    },
+    relatedCombinations: [],
+  };
+};
+
 class CombinationStore {
   private combinations: CombinationResponse[] = [];
+  private selectedCombinationId: number | null = null;
   networkState: NetworkState = "pending";
   constructor() {
     makeAutoObservable(this);
@@ -27,6 +59,34 @@ class CombinationStore {
     } catch (error) {
       this.setNetworkState("error");
     }
+  }
+
+  setSelectedCombination(id: number | null) {
+    this.selectedCombinationId = id;
+  }
+
+  get currentCombination(): CombinationResponse {
+    if (this.selectedCombinationId) {
+      const selectedMain = this.combinations.find(
+        (comb) => comb.combination.id === this.selectedCombinationId
+      );
+
+      if (selectedMain) {
+        return selectedMain;
+      }
+
+      for (const mainComb of this.combinations) {
+        const selectedRelated = mainComb.relatedCombinations.find(
+          (related) => related.id === this.selectedCombinationId
+        );
+
+        if (selectedRelated) {
+          return createMainCombination(selectedRelated);
+        }
+      }
+    }
+
+    return this.defaultCombination;
   }
 
   get defaultCombination(): CombinationResponse {

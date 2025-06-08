@@ -4,7 +4,7 @@ import "./header.scss";
 import { CombinationStore } from "../../stores";
 
 const Header = observer(() => {
-  const defaultCombination = CombinationStore.defaultCombination.combination;
+  const defaultCombination = CombinationStore.currentCombination.combination;
   return (
     <header className="header">
       <Breadcrumb selectedName={defaultCombination.name} />
