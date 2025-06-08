@@ -1,7 +1,9 @@
 import "./Breadcrumb.scss";
-type Props = {};
+interface Props {
+  selectedName: string;
+}
 
-const Breadcrumb = (props: Props) => {
+const Breadcrumb = ({ selectedName }: Props) => {
   return (
     <nav className="breadcrumb">
       <a href="#" className="breadcrumb__link">
@@ -13,7 +15,7 @@ const Breadcrumb = (props: Props) => {
       </a>
       <span className="breadcrumb__separator">{">"}</span>
       <a href="#" className="breadcrumb__link">
-        Pastel Blonde
+        {selectedName}
       </a>
     </nav>
   );

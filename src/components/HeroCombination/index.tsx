@@ -5,13 +5,13 @@ import FavoriteButton from "./FavoriteButton";
 import "./heroCombination.scss";
 
 const HeroCombination = observer(() => {
-  const defaultCombination = CombinationStore.defaultCombination;
+  const defaultCombination = CombinationStore.defaultCombination.combination;
   return (
     <section className="heroCombination">
       <div className="heroCombination__image-container">
-        <FavoriteButton />
+        <FavoriteButton likes={defaultCombination.likes} />
       </div>
-      <Combination combination={defaultCombination.combination} />
+      <Combination combination={defaultCombination} />
     </section>
   );
 });

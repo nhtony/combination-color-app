@@ -1,4 +1,4 @@
-.combination{
+.combination {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     background: white;
@@ -7,10 +7,15 @@
         padding: 0;
     }
     &__box {
+        position: relative;
         width: 100%;
         height: 100px;
         cursor: pointer;
-        transition: transform 0.3s ease;
+        &:hover {
+            .combination__copy {
+                opacity: 1;
+            }
+        }
     }
     &__info {
         padding: 15px;
@@ -21,11 +26,40 @@
             color: #333;
             margin-bottom: 5px;
             font-size: 14px;
+            text-decoration: underline;
         }
         &__code {
             display: block;
             color: #666;
             font-size: 12px;
+            text-transform: uppercase;
+        }
+    }
+    &__copy {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+    &__check {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 14px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    &__check {
+        opacity: 1;
+        svg {
+            stroke: white;
         }
     }
 }

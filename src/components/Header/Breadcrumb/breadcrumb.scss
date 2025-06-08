@@ -5,6 +5,14 @@
         color: #666;
         text-decoration: none;
         font-size: 14px;
+        &:last-child {
+            color: #999;
+            pointer-events: none;
+            cursor: default;
+        }
+        &:not(:last-child):hover {
+            text-decoration: underline;
+        }
     }
     &__separator {
         margin: 0 8px;

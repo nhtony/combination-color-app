@@ -1,17 +1,20 @@
-import Breadcrumb from "../Breadcrumb";
+import { observer } from "mobx-react-lite";
+import Breadcrumb from "./Breadcrumb";
 import "./header.scss";
+import { CombinationStore } from "../../stores";
 
-const Header = () => {
+const Header = observer(() => {
+  const defaultCombination = CombinationStore.defaultCombination.combination;
   return (
     <header className="header">
-      <Breadcrumb />
+      <Breadcrumb selectedName={defaultCombination.name} />
       <h1 className="header__title">
-        Pastel Blonde
+        {defaultCombination.name}
         <br />
         color combination
       </h1>
     </header>
   );
-};
+});
 
 export default Header;
