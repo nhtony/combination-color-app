@@ -1,0 +1,18 @@
+.heroCombination {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 60px;
+
+    &__image-container {
+        position: relative;
+        height: 500px;
+        background-image: url("../../assets/images/RoseQuartz.png");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,31 @@
+.combination{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: white;
+    &__content {
+        text-align: center;
+        padding: 0;
+    }
+    &__box {
+        width: 100%;
+        height: 100px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    &__info {
+        padding: 15px;
+        background: white;
+        &__name {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        &__code {
+            display: block;
+            color: #666;
+            font-size: 12px;
+        }
+    }
+}
