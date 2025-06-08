@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { MainCombination } from "../../../constants/types";
 import CheckIcon from "../../common/CheckIcon";
 import ColorPicker from "../../ColorPicker";
+import { MainCombination } from "../../../constants/types";
 import { CombinationStore } from "../../../stores";
 import "./combination.scss";
 type Props = {
@@ -14,6 +14,8 @@ const Combination = ({ combination }: Props) => {
     null
   );
   const { colors = [], id } = combination;
+  console.log("colors", JSON.parse(JSON.stringify(colors)));
+  
 
   const handleClick = (hex: string) => {
     navigator.clipboard.writeText(hex);

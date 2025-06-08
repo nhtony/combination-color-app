@@ -1,6 +1,5 @@
 import LikeIcon from "../../common/LikeIcon";
 import "./favoriteButton.scss";
-
 interface Props {
   likes: number;
   liked: boolean;

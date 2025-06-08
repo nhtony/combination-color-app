@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import Breadcrumb from "./Breadcrumb";
-import "./header.scss";
 import { CombinationStore } from "../../stores";
+import "./header.scss";
 
 const Header = observer(() => {
   const defaultCombination = CombinationStore.currentCombination.combination;

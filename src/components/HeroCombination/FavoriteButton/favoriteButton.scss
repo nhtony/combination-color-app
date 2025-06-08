@@ -1,17 +1,16 @@
 .favorite-button {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: white;
+    top: $spacing-md;
+    right: $spacing-md;
+    background: $color-white;
     border: none;
-    border-radius: 25px;
-    padding: 8px 15px;
+    border-radius: $border-radius-full;
+    padding: $spacing-xs $spacing-sm;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: #666;
+    gap: $spacing-xs;
+    font-size: $font-size-sm;
+    color: $color-gray-dark;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px $color-shadow;
 }

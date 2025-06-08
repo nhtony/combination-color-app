@@ -1,7 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { fetchAllCombinations } from "../../services/fetchAllCombinations";
 import {
-  Color,
   CombinationResponse,
   MainCombination,
   RelatedCombinationType,
@@ -70,32 +69,32 @@ class CombinationStore {
     colorIndex: number,
     newColor: string
   ) {
-    const combination = this.combinations.find(
+    const updateComb = this.combinations.find(
       (comb) => comb.combination.id === combinationId
     );
 
-    if (combination) {
-      combination.combination.colors[colorIndex].hex = newColor;
+    if (updateComb) {
+      updateComb.combination.colors[colorIndex].hex = newColor;
     }
   }
 
   get currentCombination(): CombinationResponse {
     if (this.selectedCombinationId) {
-      const selectedMain = this.combinations.find(
+      const selectedCombination = this.combinations.find(
         (comb) => comb.combination.id === this.selectedCombinationId
       );
 
-      if (selectedMain) {
-        return selectedMain;
+      if (selectedCombination) {
+        return selectedCombination;
       }
 
-      for (const mainComb of this.combinations) {
-        const selectedRelated = mainComb.relatedCombinations.find(
-          (related) => related.id === this.selectedCombinationId
+      for (const comb of this.combinations) {
+        const selectedRelatedComb = comb.relatedCombinations.find(
+          (relatedComb) => relatedComb.id === this.selectedCombinationId
         );
 
-        if (selectedRelated) {
-          return createMainCombination(selectedRelated);
+        if (selectedRelatedComb) {
+          return createMainCombination(selectedRelatedComb);
         }
       }
     }

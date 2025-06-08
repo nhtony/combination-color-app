@@ -1,7 +1,6 @@
 import "./browseTemplate.scss";
-type Props = {};
 
-const BrowseTemplate = (props: Props) => {
+const BrowseTemplate = () => {
   return (
     <section className="browseTemplate">
       <h3 className="browseTemplate__title">

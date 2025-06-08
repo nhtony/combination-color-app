@@ -1,9 +1,9 @@
 import { observer } from "mobx-react-lite";
-import "./relatedCombination.scss";
+import { useState } from "react";
+import LikeIcon from "../common/LikeIcon";
 import CombinationStore from "../../stores/CombinationStore";
 import { RelatedCombinationType } from "../../constants/types";
-import LikeIcon from "../common/LikeIcon";
-import { useState } from "react";
+import "./relatedCombination.scss";
 
 const NUMBER_ITEMS = 5;
 interface Props {

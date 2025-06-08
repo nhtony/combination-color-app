@@ -1,35 +1,39 @@
 .relatedCombination {
-    margin-bottom: 60px;
+    margin-bottom: $spacing-xl;
+
     &__title {
-        font-size: 2rem;
-        font-weight: 300;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-light;
         text-align: center;
-        margin-bottom: 40px;
-        color: #333;
+        margin-bottom: $spacing-lg;
+        color: $color-text-primary;
     }
+
     &__grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin-bottom: 20px;
+        grid-template-columns: repeat(auto-fit, minmax($grid-min-width, 1fr));
+        gap: $spacing-md;
+        margin-bottom: $spacing-md;
     }
+
     &__see-more-btn {
         cursor: pointer;
         background: none;
         border: none;
-        color: black;
-        font-size: 14px;
-        padding: 20px;
+        color: $color-black;
+        font-size: $font-size-sm;
+        padding: $spacing-md;
         width: 100%;
         height: 100%;
     }
+
     &__empty {
         text-align: center;
-        padding: 40px;
-        background: #f8f9fa;
-        border-radius: 8px;
-        color: #666;
-        font-size: 14px;
+        padding: $spacing-lg;
+        background: $color-gray-light-1;
+        border-radius: $border-radius-md;
+        color: $color-gray-dark;
+        font-size: $font-size-sm;
     }
 }
 
@@ -41,14 +45,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #f8f9fa;
+        background: $color-gray-light-1;
     }
 
     &__colors {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        height: 100px;
-        border-radius: 8px;
+        height: $grid-item-height;
+        border-radius: $border-radius-md;
         overflow: hidden;
     }
 
@@ -62,29 +66,29 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        padding: 12px;
-        background: white;
+        padding: $spacing-sm;
+        background: $color-white;
         opacity: 0;
         transition: opacity 0.2s ease-in-out;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: $border-radius-md;
+        border-bottom-right-radius: $border-radius-md;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border: 1px solid #eee;
+        border: 1px solid $color-gray-border;
         border-top: none;
     }
 
     &__name {
-        font-size: 14px;
-        font-weight: 500;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
     }
 
     &__likes {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 5px;
+        gap: $spacing-xs;
     }
 
     &:hover {
