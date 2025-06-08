@@ -1,19 +1,35 @@
 import { useEffect, useState } from "react";
 import { MainCombination } from "../../../constants/types";
 import CheckIcon from "../../common/CheckIcon";
+import ColorPicker from "../../ColorPicker";
+import { CombinationStore } from "../../../stores";
 import "./combination.scss";
-
 type Props = {
   combination: MainCombination;
 };
 
 const Combination = ({ combination }: Props) => {
   const [clickedIndex, setClickedIndex] = useState<string>("");
-  const { colors = [] } = combination;
+  const [selectedColorIndex, setSelectedColorIndex] = useState<number | null>(
+    null
+  );
+  const { colors = [], id } = combination;
 
   const handleClick = (hex: string) => {
     navigator.clipboard.writeText(hex);
     setClickedIndex(hex);
+  };
+
+  const handleColorCodeClick = (event: React.MouseEvent, index: number) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setSelectedColorIndex(index);
+  };
+
+  const handleColorChange = (newColor: string) => {
+    if (selectedColorIndex !== null && id) {
+      CombinationStore.updateCombinationColor(id, selectedColorIndex, newColor);
+    }
   };
 
   useEffect(() => {
@@ -22,7 +38,7 @@ const Combination = ({ combination }: Props) => {
 
   return (
     <div className="combination">
-      {colors.map((color) => (
+      {colors.map((color, index) => (
         <div className="combination__content" key={color.hex + combination.id}>
           <div
             className="combination__box"
@@ -39,10 +55,22 @@ const Combination = ({ combination }: Props) => {
           </div>
           <div className="combination__info">
             <span className="combination__info__name">{color.name}</span>
-            <span className="combination__info__code">{color.hex}</span>
+            <span
+              className="combination__info__code"
+              onClick={(e) => handleColorCodeClick(e, index)}
+            >
+              {color.hex}
+            </span>
           </div>
         </div>
       ))}
+      {selectedColorIndex !== null && (
+        <ColorPicker
+          initialColor={colors[selectedColorIndex].hex}
+          onColorChange={handleColorChange}
+          onClose={() => setSelectedColorIndex(null)}
+        />
+      )}
     </div>
   );
 };

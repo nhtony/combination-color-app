@@ -65,6 +65,20 @@ class CombinationStore {
     this.selectedCombinationId = id;
   }
 
+  updateCombinationColor(
+    combinationId: number | null,
+    colorIndex: number,
+    newColor: string
+  ) {
+    const combination = this.combinations.find(
+      (comb) => comb.combination.id === combinationId
+    );
+
+    if (combination) {
+      combination.combination.colors[colorIndex].hex = newColor;
+    }
+  }
+
   get currentCombination(): CombinationResponse {
     if (this.selectedCombinationId) {
       const selectedMain = this.combinations.find(
