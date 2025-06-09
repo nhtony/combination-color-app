@@ -1,12 +1,37 @@
-# React + Vite
+# Color Combination App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application for managing and exploring color combinations, built with Vite and TypeScript.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Color Combination Display
+2. Dynamic Color Updating
+3. Save and Load Color Combinations
+4. Color Picker Integration
 
-## Expanding the ESLint configuration
+## 📦 Technologies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 18
+- TypeScript
+- Vite
+- MobX for state management
+- SCSS modules
+- react-colorful
+
+## 🛠️ Installation
+
+1. Clone the repository
+```bash
+git clone <your-repo-url>
+cd color-template-app
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Start the development server
+```bash
+npm run dev
+```
