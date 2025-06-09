@@ -1,0 +1,46 @@
+// Colors
+$color-text-primary: #404040;
+$color-gray-dark: #666666;
+$color-gray-light-1: #f0f0f0;
+$color-gray-light-2: #999999;
+$color-pink-light: #f8cac7;
+$color-gray-lighter: #e0e0e0;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-red: #ff4444;
+$color-gray-border: #eeeeee;
+$color-overlay: rgba(0, 0, 0, 0.5);
+$color-shadow: rgba(0, 0, 0, 0.1);
+
+// Typography
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Spacing
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-md: 20px;
+$spacing-lg: 40px;
+$spacing-xl: 60px;
+
+// Font sizes
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 1.8rem;
+$font-size-xl: 2.5rem;
+
+// Z-index
+$z-index-overlay: 100;
+$z-index-modal: 101;
+
+// Border radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 20px;
+$border-radius-full: 25px;
+
+// Grid
+$grid-item-height: 100px;
+$grid-min-width: 250px;

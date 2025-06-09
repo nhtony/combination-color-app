@@ -1,0 +1,6 @@
+.likeIcon {
+    &--liked {
+        stroke: $color-red;
+        fill: $color-red;
+    }
+}

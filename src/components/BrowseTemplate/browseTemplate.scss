@@ -1,24 +1,24 @@
 .browseTemplate {
     text-align: center;
     &__title {
-        font-size: 1.8rem;
-        font-weight: 400;
-        color: #333;
-        margin-bottom: 30px;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-regular;
+        color: $color-text-primary;
+        margin-bottom: $spacing-md;
         line-height: 1.4;
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
     }
     &__button {
-        background: #f4b9b8;
-        color: #333;
+        background: $color-pink-light;
+        color: $color-text-primary;
         border: none;
-        padding: 15px 30px;
-        border-radius: 5px;
-        font-size: 16px;
-        font-weight: 500;
+        padding: $spacing-sm $spacing-md;
+        border-radius: $spacing-xs;
+        font-size: $font-size-base;
+        font-weight: $font-weight-medium;
         cursor: pointer;
-        box-shadow: 0 5px 15px rgba(244, 185, 184, 0.3);
+        box-shadow: 0 $spacing-xs $spacing-sm $color-shadow;
     }
 }

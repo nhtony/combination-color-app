@@ -1,0 +1,21 @@
+.breadcrumb {
+    text-align: center;
+    padding: 20px 0;
+    &__link {
+        color: $color-gray-dark;
+        text-decoration: none;
+        font-size: 14px;
+        &:last-child {
+            color: $color-gray-light-2;
+            pointer-events: none;
+            cursor: default;
+        }
+        &:not(:last-child):hover {
+            text-decoration: underline;
+        }
+    }
+    &__separator {
+        margin: 0 8px;
+        color: $color-black;
+    }
+}
